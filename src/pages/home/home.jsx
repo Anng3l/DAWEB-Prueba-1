@@ -1,14 +1,9 @@
-import React from 'react'
 import "./homeStyles.css"
 
-export const home = () => {
+export default function Home() {
   return (
-    <>
-        <div>
-
-
-
-        </div>
-    </>
+    <div>
+        <h1> Home </h1>
+    </div>
   )
 }

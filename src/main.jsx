@@ -1,10 +1,43 @@
+import React from 'react';
+
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Navigationbar from "./components/navbar/Navigationbar.jsx"
+
+//Páginas a rutear
+  //Se importa sin llaves cuando se exporta por default. Con llave cuando se exporta con nombre.
+import { About } from './pages/about/about.jsx';
+import { Team } from './pages/equipo/team.jsx';
+import Home from './pages/home/home.jsx';
+import Pokedex  from './pages/pokedex/pokedex';
+
+  //Página para mostrar en caso de que el usuario ingrese a una ruta inexistente
+import { NotFound } from './pages/notFound/notFound.jsx';
+
+//Ruteo
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+  //Rutas y componente a renderizar según la ruta. Considerar que hay que importar todas las páginas que se quieren rutear.
+const router = createBrowserRouter([{
+    path: "/",
+    element: <Home />,
+    errorElement: <NotFound/>
+  },
+  {
+    path: "/team",
+    element: <Team />
+  },
+  {
+    path: "/about",
+    element: <About/>
+  },
+  {
+    path: "/pokedex",
+    element: <Pokedex/>
+  }
+]);
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <Navigationbar></Navigationbar>
-  </StrictMode>
+  <React.StrictMode>
+    <RouterProvider router={router}/>
+  </React.StrictMode>
 )
