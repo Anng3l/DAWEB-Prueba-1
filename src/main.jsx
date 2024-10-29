@@ -3,6 +3,9 @@ import React from 'react';
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 
+//Estilos globales
+import './index.css'
+
 //Páginas a rutear
   //Se importa sin llaves cuando se exporta por default. Con llave cuando se exporta con nombre.
 import { About } from './pages/about/about.jsx';
