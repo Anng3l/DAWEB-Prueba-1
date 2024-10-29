@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const notFound = () => {
+export const NotFound = () => {
   return (
     <div>
         Error 404. Not Found.
