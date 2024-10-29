@@ -16,7 +16,7 @@ function Navigationbar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/home">Inicio</Nav.Link>
+            <Nav.Link href="/">Inicio</Nav.Link>
             <Nav.Link href="/team">Tu Equipo</Nav.Link>
             <Nav.Link href="/pokedex">Pokédex</Nav.Link>
             <Nav.Link href="/about">Acerca de</Nav.Link>

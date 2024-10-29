@@ -16,28 +16,39 @@ import { NotFound } from './pages/notFound/notFound.jsx';
 //Ruteo
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+//Layout
+import Layout from './pages/layout/layout.jsx';
+
   //Rutas y componente a renderizar según la ruta. Considerar que hay que importar todas las páginas que se quieren rutear.
-const router = createBrowserRouter([{
-    path: "/",
-    element: <Home />,
-    errorElement: <NotFound/>
-  },
+const router = createBrowserRouter([
   {
-    path: "/team",
-    element: <Team />
+    element: <Layout/>,
+    errorElement: <NotFound/>,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+        errorElement: <NotFound/>
+      },
+      {
+        path: "/team",
+        element: <Team />
+      },
+      {
+        path: "/about",
+        element: <About/>
+      },
+      {
+        path: "/pokedex",
+        element: <Pokedex/>
+      }
+    ]
   },
-  {
-    path: "/about",
-    element: <About/>
-  },
-  {
-    path: "/pokedex",
-    element: <Pokedex/>
-  }
 ]);
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouterProvider router={router}/>
+
   </React.StrictMode>
 )
