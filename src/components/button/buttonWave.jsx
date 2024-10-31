@@ -2,7 +2,7 @@ import "./buttonStyle.css";
 
 import React from 'react';
 
-const Button = ({ onClick, children }) => {
+const ButtonWave = ({ onClick, children }) => {
     return (
         <button onClick={onClick}>
             <div className="text">{children}</div>
@@ -11,4 +11,4 @@ const Button = ({ onClick, children }) => {
     );
 };
 
-export default Button;
+export default ButtonWave;
