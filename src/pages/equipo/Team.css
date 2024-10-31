@@ -1,0 +1,26 @@
+
+.pokemon-query-container {
+    margin-bottom: 20px; /* Espacio entre el cuadro de Pokémon y el chatbot */
+    display: flex; /* Utiliza flexbox */
+    flex-direction: column; /* Alineación vertical */
+  }
+  
+  .placeholder {
+    background-color: lightgray; /* Color de fondo gris */
+    border: 10px solid #ccc; /* Borde del cuadro */
+    padding: 100px; /* Espaciado interno */
+    min-height: 150px; /* Altura mínima para el cuadro */
+    overflow: auto; /* Permite scroll si el contenido es muy grande */
+  }
+  
+  .chatbot-response-container {
+    position: fixed; /* Posiciona el cuadro de respuesta en la esquina */
+    bottom: 20px; /* Distancia desde el fondo */
+    right: 20px; /* Distancia desde la derecha */
+    width: 300px; /* Ancho del cuadro */
+  }
+  
+  .chatbot-response-container .placeholder {
+    height: 100px; /* Altura del cuadro del chatbot */
+  }
+  
