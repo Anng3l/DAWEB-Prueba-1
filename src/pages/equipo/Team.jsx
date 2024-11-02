@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { GoogleGenerativeAI } from '@google/generative-ai'; // Importacion de libreria
 import './Team.css'; // Asegúrate de crear este archivo CSS
 
 export const Team = () => {
   // Estado para almacenar los resultados de las APIs
   const [queryResults, setQueryResults] = useState(null);
   const [chatbotResponse, setChatbotResponse] = useState(null);
+  const [inputText, setInputText] = useState(''); // Para almacenar el texto de entrada
+
 
   // Función para consultar la API de pokemon
   const fetchQuery = async () => {
