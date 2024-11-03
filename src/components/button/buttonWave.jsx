@@ -2,12 +2,16 @@ import "./buttonStyle.css";
 
 import React from 'react';
 
-const ButtonWave = ({ onClick, children }) => {
+import { Link } from "react-router-dom";
+
+const ButtonWave = ({ to, children }) => {
     return (
-        <button onClick={onClick}>
-            <div className="text">{children}</div>
-            <div className="wave"></div>
-        </button>
+        <Link to={to}>
+            <button>
+                <div className="text">{children}</div>
+                <div className="wave"></div>
+            </button>
+        </Link>
     );
 };
 
