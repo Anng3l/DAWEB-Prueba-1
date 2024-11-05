@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { GoogleGenerativeAI } from '@google/generative-ai'; // Importación de librería
 import './Team.css'; // Asegúrate de crear este archivo CSS
+import Dex from "../../assets/images/rotom.png";
 
 export const Team = () => {
-  // Estado para almacenar los resultados de las APIs
   const [queryResults, setQueryResults] = useState(null);
   const [chatbotResponse, setChatbotResponse] = useState(null);
   const [inputText, setInputText] = useState(''); // Para almacenar el texto de entrada
@@ -11,17 +11,13 @@ export const Team = () => {
   const API_KEY = 'AIzaSyAnBUSyOoagyXBaqkhiTGPg7CcQ0BYeG4k';
   const genAI = new GoogleGenerativeAI(API_KEY);
 
-    // useEffect para llamar a las funciones de las APIs al montar el componente
-    useEffect(() => {
-    
-    }, []);
+  useEffect(() => {}, []);
 
-  // Función para consultar la API de Google Gemini
   const fetchChatbot = async () => {
     try {
       const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro-latest" });
       const result = await model.generateContent(inputText);
-      const responseText = await result.response.text(); // Corregido para obtener el texto
+      const responseText = await result.response.text();
       setChatbotResponse(responseText);
     } catch (error) {
       if (error.message.includes("429")) {
@@ -32,28 +28,16 @@ export const Team = () => {
     }
   };
 
-  // Manejo para el cambio de Input
   const handleInputChange = (event) => {
     setInputText(event.target.value);
   };
 
-
-
   return (
-    <div>
-      <h1>Equipo Pokémon</h1>
+    <div className='center'>
+      <h1>Tu nuevo compañero Pokémon te espera!</h1>
 
-      <input 
-        type="text"
-        placeholder='Escribe algo aquí'
-        value={inputText}
-        onChange={handleInputChange}
-      />
-      <button onClick={fetchChatbot} className='btn btn-danger mt-3'>Generar Respuesta de Gemini</button> 
-      
-      {/* Contenedor para la consulta de Pokémon */}
       <div className="pokemon-query-container">
-        <h2>Resultados de la API de Pokémon</h2>
+        <h2>¡Conoce al nuevo integrante de tu equipo!</h2>
         <div className="placeholder">
           {queryResults ? (
             <pre>{JSON.stringify(queryResults, null, 2)}</pre>
@@ -61,21 +45,40 @@ export const Team = () => {
             <p>Cargando resultados de la API...</p>
           )}
         </div>
-        {/* Botón de consulta */}
-        <button className="btn btn-primary mt-3">Consultar API Pokémon</button>
+        <div className='btn-catch'>
+          <button className="btn btn-primary mt-3">Capturar!</button>
+        </div>
+        
       </div>
       
       {/* Cuadro para la respuesta del chatbot */}
       <div className="chatbot-response-container">
-        <h2>Respuesta del Chatbot</h2>
+        <h2>Pregúntale a Rotom Dex </h2>  
+        <h2>¡Conoce a tu equipo Pokémon!</h2>
         <div className="placeholder">
           {chatbotResponse ? (
-            <p>{chatbotResponse}</p> // Corregido para mostrar el texto de la respuesta
+            <p>{chatbotResponse}</p>
           ) : (
-            <p>Cargando respuesta del chatbot...</p>
+            <p>Cargando respuesta de Rotom...</p>
           )}
+          
         </div>
+        <img src={Dex} alt="rotomdex" className="rotomdex" width={145} height={100}/>
+        
+        <input 
+          type="text"
+          placeholder='Escribe algo aquí'
+          value={inputText}
+          onChange={handleInputChange}
+          className="input-text mt-3"
+        />
+        <button onClick={fetchChatbot} className='btn btn-danger mt-3'>Generar Respuesta</button> 
+        
       </div>
+      
     </div>
+
+    
   );
 };
+
