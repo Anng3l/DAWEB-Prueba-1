@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { GoogleGenerativeAI } from '@google/generative-ai'; // Importación de librería
 import './Team.css'; // Asegúrate de crear este archivo CSS
 import Dex from "../../assets/images/rotom.png";
+import Dex2 from "../../assets/images/rotomgif.webp";
 
 export const Team = () => {
   const [queryResults, setQueryResults] = useState(null);
@@ -34,8 +35,9 @@ export const Team = () => {
 
   return (
     <div className='center'>
-      <h1>Tu nuevo compañero Pokémon te espera!</h1>
+      <h1>Pregúntale a Rotom Dex</h1>
 
+      {/* 
       <div className="pokemon-query-container">
         <h2>¡Conoce al nuevo integrante de tu equipo!</h2>
         <div className="placeholder">
@@ -49,11 +51,12 @@ export const Team = () => {
           <button className="btn btn-primary mt-3">Capturar!</button>
         </div>
         
-      </div>
+      </div> */}
       
+
       {/* Cuadro para la respuesta del chatbot */}
       <div className="chatbot-response-container">
-        <h2>Pregúntale a Rotom Dex </h2>  
+        <h2> </h2>  
         <h2>¡Conoce a tu equipo Pokémon!</h2>
         <div className="placeholder">
           {chatbotResponse ? (
@@ -63,8 +66,8 @@ export const Team = () => {
           )}
           
         </div>
-        <img src={Dex} alt="rotomdex" className="rotomdex" width={145} height={100}/>
         
+        <img src={Dex2} alt="rotomdex2" className="rotomdex2" width={125} height={100}/>
         <input 
           type="text"
           placeholder='Escribe algo aquí'
@@ -75,7 +78,8 @@ export const Team = () => {
         <button onClick={fetchChatbot} className='btn btn-danger mt-3'>Generar Respuesta</button> 
         
       </div>
-      
+      <img src={Dex} alt="rotomdex" className="rotomdex" width={575} height={425}/>
+
     </div>
 
     
