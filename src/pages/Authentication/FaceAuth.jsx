@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import faceIO from '@faceio/fiojs'
-
+import './FaceAuth.css'; //Conexion al archivo CSS
 
 const FaceAuth = () => {
 
@@ -154,8 +154,16 @@ const FaceAuth = () => {
   };
   return (
     <div>
-      <button onClick={handleEnrollment}>Registrarse</button>
-      <button onClick={handleAuthentication}>Iniciar Sesión</button>
+
+      <button onClick={handleEnrollment}>
+        <div class='text'>Registrarse</div>
+        <div class='wave'></div>
+      </button>
+      <button onClick={handleAuthentication}>
+        <div class='text'>Iniciar Sesión</div>
+        <div class='wave'></div>
+      </button>
+      
     </div>
   );
 };

@@ -35,8 +35,7 @@ export const Team = () => {
 
   return (
     <div className='center'>
-      <h1>Pregúntale a Rotom Dex</h1>
-
+      <h1>Pregúntale a Rotom Dex!</h1>
       {/* 
       <div className="pokemon-query-container">
         <h2>¡Conoce al nuevo integrante de tu equipo!</h2>
