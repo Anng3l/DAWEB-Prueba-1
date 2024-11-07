@@ -8,7 +8,7 @@ const FaceAuth = () => {
   
 
   useEffect(() => {
-    const faceioAcc = new faceIO("fioac610");
+    const faceioAcc = new faceIO("TOKEN");
     setFaceio(faceioAcc);
   }, []);
   
