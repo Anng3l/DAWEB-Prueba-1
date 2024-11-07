@@ -12,6 +12,7 @@ import { About } from './pages/about/about.jsx';
 import { Team } from './pages/equipo/team.jsx';
 import Home from './pages/home/home.jsx';
 import Pokedex  from './pages/pokedex/pokedex';
+import FaceAuth from './pages/Authentication/FaceAuth.jsx';
 
   //Página para mostrar en caso de que el usuario ingrese a una ruta inexistente
 import { NotFound } from './pages/notFound/notFound.jsx';
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: "/pokedex",
         element: <Pokedex/>
+      },
+      {
+        path: "/auth",
+        element: <FaceAuth/>
       }
     ]
   },
