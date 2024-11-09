@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import faceIO from '@faceio/fiojs'
-import './FaceAuth.css'; //Conexion al archivo CSS
+import styles from './FaceAuth.module.css' //Conexion al archivo CSS
+import gifPica from '../../assets/images/gifPica.gif'
 
 const FaceAuth = () => {
 
@@ -153,17 +154,25 @@ const FaceAuth = () => {
     };
   };
   return (
-    <div>
+    <div className={styles.container}>
 
-      <button onClick={handleEnrollment}>
-        <div class='text'>Registrarse</div>
-        <div class='wave'></div>
+      <button className={styles.button} onClick={handleEnrollment}>
+        <div className={styles.text}>Registrarse</div>
+        <div className={styles.wave}></div>
       </button>
-      <button onClick={handleAuthentication}>
-        <div class='text'>Iniciar Sesión</div>
-        <div class='wave'></div>
+      <button className={styles.button} onClick={handleAuthentication}>
+        <div className={styles.text}>Iniciar Sesión</div>
+        <div className={styles.wave}></div>
       </button>
-      
+
+      <div className={styles.pokemonContainer}>
+        <img 
+          src={gifPica}
+          alt="Pokemon running"
+          className={styles.pokemonGif}
+        />
+      </div>
+
     </div>
   );
 };
