@@ -34,25 +34,10 @@ export const Team = () => {
   };
 
   return (
+  <div className='containerTotal'>
     <div className='center'>
       <h1>Pregúntale a Rotom Dex!</h1>
-      {/* 
-      <div className="pokemon-query-container">
-        <h2>¡Conoce al nuevo integrante de tu equipo!</h2>
-        <div className="placeholder">
-          {queryResults ? (
-            <pre>{JSON.stringify(queryResults, null, 2)}</pre>
-          ) : (
-            <p>Cargando resultados de la API...</p>
-          )}
-        </div>
-        <div className='btn-catch'>
-          <button className="btn btn-primary mt-3">Capturar!</button>
-        </div>
-        
-      </div> */}
       
-
       {/* Cuadro para la respuesta del chatbot */}
       <div className="chatbot-response-container">
         <h2> </h2>  
@@ -81,7 +66,8 @@ export const Team = () => {
 
     </div>
 
-    
+  </div> 
+  
   );
 };
 

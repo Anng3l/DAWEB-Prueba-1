@@ -5,6 +5,7 @@ import Navbar from "../../components/navbar/Navigationbar";
 import { Outlet } from 'react-router-dom';
 import { Button } from 'bootstrap';
 
+
 function Layout() {
   return (
     <>
