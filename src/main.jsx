@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom'
 import './index.css';
 
 // Páginas a rutear
-import { About } from './pages/about/about.jsx';
+import { About } from './pages/about/About.jsx';
 import { Team } from './pages/equipo/team.jsx';
 import Home from './pages/home/home.jsx';
 import Pokedex from './pages/pokedex/Pokedex.jsx';
