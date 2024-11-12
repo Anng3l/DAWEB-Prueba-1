@@ -13,6 +13,7 @@
     "@faceio/fiojs": "^1.1.0",
     "@google/generative-ai": "^0.21.0",
     "bootstrap": "^5.3.3",
+    "lucide-react": "^0.456.0",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.5",
     "react-dom": "^18.3.1",
