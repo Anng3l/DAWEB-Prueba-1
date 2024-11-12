@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import faceIO from '@faceio/fiojs'
 import styles from './FaceAuth.module.css' //Conexion al archivo CSS
-import gifPica from '../../assets/images/gifPica.gif'
 
 const FaceAuth = () => {
 
@@ -19,35 +18,6 @@ const FaceAuth = () => {
                             .enroll({locale: "auto"})
                             .catch(err => {
                               handleError(err);
-                              /*
-                              if (err === 20)
-                              {
-                                const restart = window.confirm("Sesión en progreso. ¿Desea cerrar la sesión?");
-                                if (restart)
-                                {
-                                  const restarted = faceio.restartSession();
-
-                                  if (restarted)
-                                  {
-                                    handleEnrollment();
-                                  }
-                                  else
-                                  {
-                                    console.log("No se puede reiniciar la sesión")
-                                  }
-                                }
-                              }
-                              else if (err === 13)
-                              {
-                                let x = faceio;
-                                const restarted = x.restartSession();
-                                setFaceio(restarted);
-                              }
-                              else
-                              {
-                                console.log("Register failed: ", err);
-                              }
-                                */
                             })
   };
 
@@ -154,7 +124,7 @@ const FaceAuth = () => {
     };
   };
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id="totalContainer">
 
       <button className={styles.button} onClick={handleEnrollment}>
         <div className={styles.text}>Registrarse</div>
@@ -164,14 +134,6 @@ const FaceAuth = () => {
         <div className={styles.text}>Iniciar Sesión</div>
         <div className={styles.wave}></div>
       </button>
-
-      <div className={styles.pokemonContainer}>
-        <img 
-          src={gifPica}
-          alt="Pokemon running"
-          className={styles.pokemonGif}
-        />
-      </div>
 
     </div>
   );

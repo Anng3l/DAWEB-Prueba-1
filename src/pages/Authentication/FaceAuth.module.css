@@ -7,13 +7,19 @@
     letter-spacing: 0.5px; /* Mejor espaciado entre letras */
     text-transform: uppercase;
     height: 100vh;
-    background-size: cover;
+    
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 15px;
-    background: url(../../assets/images/wallpaperflare.jpg);
+
+    
+    background: url(../../assets/images/giratina.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
+
 
 .button{
     width: 350px;
