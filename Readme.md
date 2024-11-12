@@ -26,12 +26,6 @@
   * [Deployment](#triangular_flag_on_post-deployment)
 - [Usage](#eyes-usage)
 - [Roadmap](#compass-roadmap)
-- [Contributing](#wave-contributing)
-  * [Code of Conduct](#scroll-code-of-conduct)
-- [FAQ](#grey_question-faq)
-- [License](#warning-license)
-- [Contact](#handshake-contact)
-- [Acknowledgements](#gem-acknowledgements)
 
   
 
@@ -70,7 +64,7 @@
 <!-- Run Locally -->
 ### :running: Run Locally
 
-Clone the project
+Clonar el proyecto
 
 ```bash
   git clone https://github.com/Anng3l/DAWEB-Prueba-1.git
@@ -90,29 +84,14 @@ Correr el servidor
 
 ### :triangular_flag_on_post: Deployment
 
-El proyecto se encuentra desplegado en: 
+El proyecto se encuentra desplegado en: https://daweb-prueba-1-ll7l.vercel.app/
 
-
-
-<!-- Usage -->
-## :eyes: Usage
-
-En PokeFortress, los usuarios pueden realizar consultas e informarse acerca del mundo Pokémon a través de la implementación de Gemini y PokeAPI para la consulta y búsqueda de información pokémon.
-
-
-```javascript
-import Component from 'my-project'
-
-function App() {
-  return <Component />
-}
-```
 
 <!-- Roadmap -->
 ## :compass: Roadmap
 
 * [x] Autenticación
-* [ ] Página Inicio
+* [x] Página Inicio
 * [x] Página Consultas
-* [ ] Página Pokédex
-* [ ] Página Acerca De
+* [x] Página Pokédex
+* [x] Página Acerca De
