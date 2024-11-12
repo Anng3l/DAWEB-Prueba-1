@@ -9,7 +9,7 @@
   
 
 <h4>
-    <a href="https://daweb-prueba-1-ll7l-ivyeicyh3-anng3ls-projects.vercel.app/auth">Ver Demo</a>
+    <a href="https://daweb-prueba-1-ll7l.vercel.app/">Ver Demo</a>
   </h4>
 </div>
 
@@ -24,7 +24,6 @@
   * [Features](#dart-features)
   * [Run Locally](#running-run-locally)
   * [Deployment](#triangular_flag_on_post-deployment)
-- [Usage](#eyes-usage)
 - [Roadmap](#compass-roadmap)
 
   
