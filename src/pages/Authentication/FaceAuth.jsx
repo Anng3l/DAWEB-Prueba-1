@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import faceIO from '@faceio/fiojs'
 import styles from './FaceAuth.module.css' //Conexion al archivo CSS
+import { Link } from 'react-router-dom';
+import Home from '../home/home.jsx';
 
-const FaceAuth = () => {
+import { useNavigate } from 'react-router-dom';
+
+const FaceAuth = ({ setIsAuthenticated }) => {
 
   let [faceio, setFaceio] = useState(null);
-  
+  const navigate = useNavigate();
 
   useEffect(() => {
     const faceioAcc = new faceIO("fioac610");
@@ -22,13 +26,18 @@ const FaceAuth = () => {
   };
 
   const handleAuthentication = async () => {
-    const login = await faceio
-                        .authenticate({
-                          locale: "auto"
-                        }).then(userData => {
-                          console.log("User authenticated: ", userData);
-                        }).catch(err => {console.log("Authentication failed: ", err);});
-  };
+
+	const login = await faceio
+						.authenticate({
+						locale: "auto"
+						}).then(userData => {
+						console.log("User authenticated: ", userData);
+						setIsAuthenticated(true);
+						navigate("/home");
+						}).catch(err => {handleError(err);});
+
+
+	};
 
   function handleError(errCode) 
   {
@@ -87,11 +96,11 @@ const FaceAuth = () => {
 				break;
 			case 13:
 				console.log("Client session expired. The first promise was already fulfilled but the host application failed to act accordingly");
-        faceio.restartSession();
+        		faceio.restartSession();
 				break;
 			case 14:
 				console.log("Ongoing operation timed out (eg, Camera access permission, ToS accept delay, Face not yet detected, Server Reply, etc.)");
-        faceio.restartSession();
+        		faceio.restartSession();
 				break;
 			case 15:
 				console.log("Widget instantiation requests exceeded for freemium applications. Does not apply for upgraded applications");

@@ -1,71 +1,67 @@
-import React from 'react';
+import React, { StrictMode, useState } from 'react';
+import { createRoot } from 'react-dom/client';
+import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
 
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+// Estilos globales
+import './index.css';
 
-//Estilos globales
-import './index.css'
-
-//Páginas a rutear
-  //Se importa sin llaves cuando se exporta por default. Con llave cuando se exporta con nombre.
+// Páginas a rutear
 import { About } from './pages/about/about.jsx';
 import { Team } from './pages/equipo/team.jsx';
 import Home from './pages/home/home.jsx';
-import Pokedex  from './pages/pokedex/Pokedex.jsx';
-
-//OJO
+import Pokedex from './pages/pokedex/Pokedex.jsx';
 import FaceAuth from './pages/Authentication/FaceAuth.jsx';
 import Card from './components/card/card.jsx';
-
-  //Página para mostrar en caso de que el usuario ingrese a una ruta inexistente
 import { NotFound } from './pages/notFound/notFound.jsx';
-
-//Ruteo
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-
-//Layout
 import Layout from './pages/layout/layout.jsx';
 
-  //Rutas y componente a renderizar según la ruta. Considerar que hay que importar todas las páginas que se quieren rutear.
-const router = createBrowserRouter([
-  {
-    element: <Layout/>,
-    errorElement: <NotFound/>,
-    children: [
-      {
-        path: "/",
-        element: <Home />,
-        errorElement: <NotFound/>
-      },
-      {
-        path: "/team",
-        element: <Team />
-      },
-      {
-        path: "/about",
-        element: <About/>
-      },
-      {
-        path: "/pokedex",
-        element: <Pokedex/>
-      },
+function MainRouter() {
+  // Estado de autenticación
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-      //OJO ESTO SE DEBE CAMBIAR #####################################################################################################################
-      {
-        path: "/auth",
-        element: <FaceAuth/>
-      },
-      {
-        path: "/card",
-        element: <Card/>
-      }
-    ]
-  },
-]);
+  const router = createBrowserRouter([
+    {
+      element: <Layout isAuthenticated={isAuthenticated} />, // Pasa el estado al Layout
+      errorElement: <NotFound />,
+      children: [
+        {
+          path: "/",
+          element: isAuthenticated ? <Home /> : <Navigate to="/auth" replace />,
+        },
+        {
+          path: "/team",
+          element: isAuthenticated ? <Team /> : <Navigate to="/auth" replace />,
+        },
+        {
+          path: "/home",
+          element: isAuthenticated ? <Home /> : <Navigate to="/auth" replace />,
+        },
+        {
+          path: "/about",
+          element: isAuthenticated ? <About /> : <Navigate to="/auth" replace />,
+        },
+        {
+          path: "/pokedex",
+          element: isAuthenticated ? <Pokedex /> : <Navigate to="/auth" replace />,
+        },
+        {
+          path: "/auth",
+          element: <FaceAuth setIsAuthenticated={setIsAuthenticated} />, // Pasa setIsAuthenticated a FaceAuth
+        },
+        {
+          path: "/card",
+          element: isAuthenticated ? <Card /> : <Navigate to="/auth" replace />,
+        }
+      ]
+    }
+  ]);
 
-createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <RouterProvider router={router}/>
+  return (
+    <StrictMode>
+      <RouterProvider router={router} />
+    </StrictMode>
+  );
+}
 
-  </React.StrictMode>
-)
+// Renderizado principal
+createRoot(document.getElementById('root')).render(<MainRouter />);
