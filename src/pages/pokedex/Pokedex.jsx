@@ -114,7 +114,7 @@ export default function Pokedex() {
       <div className='container'>
         {/* Título y buscador */}
         <div className='buscadorContainer'>
-          <Navbar className="justify-content-center">
+          <Navbar className="justify-content-center bg-none">
             <Form className="form-inline" onSubmit={(e) => e.preventDefault()}>
               <Row>
                 <Col xs="auto" id='caja'>

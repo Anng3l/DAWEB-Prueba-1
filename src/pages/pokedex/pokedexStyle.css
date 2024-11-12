@@ -9,6 +9,8 @@
 
 .buscadorContainer {
     padding-top: 30px;
+
+    color: transparent !important;
 }
 
 .pokemonBuscado {
