@@ -7,7 +7,7 @@ import './index.css';
 
 // Páginas a rutear
 import { About } from './pages/about/About.jsx';
-import { Team } from './pages/equipo/team.jsx';
+import { Team } from './pages/equipo/Team.jsx';
 import Home from './pages/home/home.jsx';
 import Pokedex from './pages/pokedex/Pokedex.jsx';
 import FaceAuth from './pages/Authentication/FaceAuth.jsx';
@@ -29,7 +29,7 @@ function MainRouter() {
           element: isAuthenticated ? <Home /> : <Navigate to="/auth" replace />,
         },
         {
-          path: "/team",
+          path: "/ask",
           element: isAuthenticated ? <Team /> : <Navigate to="/auth" replace />,
         },
         {

@@ -26,7 +26,7 @@ function Navigationbar() {
               Inicio
             </Nav.Link>
             
-            <Nav.Link as={NavLink} to="/team" className="nav-link d-flex flex-column align-items-center" activeClassName="active">
+            <Nav.Link as={NavLink} to="/ask" className="nav-link d-flex flex-column align-items-center" activeClassName="active">
               <MdOutlineCatchingPokemon size={24} />
               Tu Equipo
             </Nav.Link>
